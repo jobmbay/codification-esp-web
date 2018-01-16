@@ -14,7 +14,7 @@ const homeRoutes: Routes = [
     children: [
       { path:'dashboard', component: DashboardComponent},
       { path:'codification', component: CodificationComponent}
-
+      
     ]
   }
 ];

@@ -1,6 +1,15 @@
 /*!
  * (c) Mimin Admin Page v1.0
  */
+.hoverable {
+  transition: box-shadow .25s;
+  box-shadow: 0;
+}
+
+.hoverable:hover {
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 body {
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -2717,7 +2726,7 @@ ul li a:focus {
 
 /*start: box v-1*/
 .box-v1{}
-  .box-v1 .panel-body{padding-top: 40px;}
+  .box-v1 .panel-body{padding-top: 0px;}
     .box-v1 .panel-body h1{line-height: .5;}
     .box-v1 .panel-body hr{width: 60%;}
 
@@ -5304,9 +5313,9 @@ ul li a:focus {
 }
 
 .nav-tabs.nav-tabs-v5 span.round-tabs {
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
   display: inline-block;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
@@ -5318,7 +5327,7 @@ ul li a:focus {
   position: absolute;
   left: 0;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .nav-tabs.nav-tabs-v5 span.round-tabs.one {
