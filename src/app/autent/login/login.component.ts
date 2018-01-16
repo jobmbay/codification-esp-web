@@ -1,4 +1,5 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {DataService} from "../../data.service";
 
 declare var $ : any;
 
@@ -9,9 +10,21 @@ declare var $ : any;
 })
 export class LoginComponent implements OnInit,AfterViewInit {
 
-  constructor() { }
+  constructor(private dataService : DataService) {
+    let urlToChangeStream = 'https://codification-esp-api.herokuapp.com/api/Departements/change-stream?_format=event-stream';
+    let src = new window['EventSource'](urlToChangeStream);
+    src.addEventListener('data', function(msg) {
+      let data = JSON.parse(msg.data);
+      console.log("realtime",data); // the change object
+    });
+  }
 
   ngOnInit() {
+    this.dataService.addData("Departements", {label : "Informatique"})
+      .subscribe(
+        data=> console.log(data),
+        err => console.log(err)
+      );
   }
 
   ngAfterViewInit()
