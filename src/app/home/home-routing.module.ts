@@ -16,7 +16,8 @@ const homeRoutes: Routes = [
     children: [
       { path:'dashboard', component: DashboardComponent},
       { path:'codification', component: CodificationComponent},
-      { path:'inscription', component: InscriptionComponent}
+      { path:'inscription', component: InscriptionComponent},
+      { path:'statistique', component: StatistiqueComponent}
       
     ]
   }
