@@ -3,12 +3,7 @@
   <nav class="navbar navbar-default header navbar-fixed-top">
     <div class="col-md-12 nav-wrapper">
       <div class="navbar-header" style="width:100%;">
-        <div class="opener-left-menu is-open">
-          <span class="top"></span>
-          <span class="middle"></span>
-          <span class="bottom"></span>
-        </div>
-        <a href="index.html" class="navbar-brand">
+        <a href="index.html" class="navbar-brand text-right">
           <b>CodificationsEsp</b>
         </a>
 
@@ -19,7 +14,7 @@
               <div class="form-group form-animate-text">
                 <input type="text" class="form-text" required>
                 <span class="bar"></span>
-                <label class="label-search">Type anywhere to <b>Search</b> </label>
+                <label class="label-search">Recherche... </label>
               </div>
             </div>
           </li>
@@ -63,15 +58,6 @@
           <li> <a routerLink="/home">Accueil</a></li>
           <li> <a routerLink="/home">Statistique</a></li>
           <li> <a routerLink="/home">Codification</a></li>
-          <li class="active ripple">
-            <a class="tree-toggle nav-header"><span class="fa-home fa"></span> Dashboard
-              <span class="fa-angle-right fa right-arrow text-right"></span>
-            </a>
-            <ul class="nav nav-list tree">
-              <li><a href="dashboard-v1.html">Dashboard v.1</a></li>
-              <li><a href="dashboard-v2.html">Dashboard v.2</a></li>
-            </ul>
-          </li>
 
         </ul>
       </div>
@@ -104,6 +90,7 @@
                     </div>
                   </div>                    
                </div>
+               
                             <div class="col-md-12 padding-0">
                                 <div class="col-md-3">
                                     <div class="panel box-v1 bg-light-blue text-white">
@@ -113,7 +100,7 @@
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                            <h4>
-                                           <span class="fa fa-building-o icons icon text-right"></span>
+                                           <span class="fa fa-building-o icons icon text-right text-white"></span>
                                            </h4>
                                         </div>
                                       </div>
@@ -132,7 +119,7 @@
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                            <h4>
-                                           <span class="fa fa-building-o icons icon text-right"></span>
+                                           <span class="fa fa-building-o icons icon text-right text-white"></span>
                                            </h4>
                                         </div>
                                       </div>
@@ -151,7 +138,7 @@
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                            <h4>
-                                           <span class="fa fa-building-o icons icon text-right"></span>
+                                           <span class="fa fa-building-o icons icon text-right text-white"></span>
                                            </h4>
                                         </div>
                                       </div>
@@ -170,7 +157,7 @@
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                            <h4>
-                                           <span class="fa fa-building-o icons icon text-right"></span>
+                                           <span class="fa fa-building-o icons icon text-right text-white"></span>
                                            </h4>
                                         </div>
                                       </div>
@@ -182,6 +169,42 @@
                                     </div>
                                 </div>
                             </div>
+            <div class="col-md-12">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Statistique Global en Bar</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas class="bar-chart"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Statistique Global en Bar</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas class="bar-chart"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Statistique Global en Bar</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas class="bar-chart"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div>
                 
 
       <router-outlet></router-outlet>
