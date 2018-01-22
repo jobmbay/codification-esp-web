@@ -8,6 +8,7 @@ import { DashboardComponent} from "./dashboard/dashboard.component";
 import { CodificationComponent } from "./codification/codification.component";
 import { InscriptionComponent } from './inscription/inscription.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
+import { EchangerChambreComponent } from './echanger-chambre/echanger-chambre.component';
 
 const homeRoutes: Routes = [
   {
@@ -17,7 +18,8 @@ const homeRoutes: Routes = [
       { path:'dashboard', component: DashboardComponent},
       { path:'codification', component: CodificationComponent},
       { path:'inscription', component: InscriptionComponent},
-      { path:'statistique', component: StatistiqueComponent}
+      { path:'statistique', component: StatistiqueComponent},
+      { path:'echanger-chambre',component: EchangerChambreComponent}
       
     ]
   }
