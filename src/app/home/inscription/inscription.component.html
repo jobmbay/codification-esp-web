@@ -1,203 +1,214 @@
  <div class="col-md-12 tab-content">
-              <div role="tabpanel" class="tab-pane fade active in" id="tabs-area-demo" aria-labelledby="tabs1">
-                <div class="col-md-12">
-                  <div class="col-md-12">
-                    <div class="col-md-12 tabs-area">
-                      <div class="liner"></div>
-                      <ul class="nav nav-tabs nav-tabs-v5" id="tabs-demo6" style="padding-left:25%;">
-                        <li class="active">
-                         <a href="#tabs-demo6-area1" data-toggle="tab" title="welcome">
-                          <span class="round-tabs three hoverable">
-                            <i class="glyphicon glyphicon-user"></i>
-                          </span> 
-                        </a>
-                      </li>
+    <div role="tabpanel" class="tab-pane fade active in" id="tabs-area-demo" aria-labelledby="tabs1">
+      <div class="col-md-12">
+          <div class="col-md-12">
+            <div class="col-md-12 tabs-area">
+              <div class="liner"></div>
+              <ul class="nav nav-tabs nav-tabs-v5" id="tabs-demo6" style="padding-left:25%;">
+                <li class="active">
+                  <a href="#tabs-demo6-area1" data-toggle="tab" title="welcome">
+                    <span class="round-tabs three hoverable">
+                      <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                  </a>
+                </li>
 
-                      <li>
-                        <a href="#tabs-demo6-area2" data-toggle="tab" title="profile">
-                         <span class="round-tabs three hoverable">
-                           <i class=" glyphicon glyphicon-folder-open"></i>
-                         </span> 
-                       </a>
-                     </li>
+                <li>
+                  <a href="#tabs-demo6-area2" data-toggle="tab" title="profile">
+                   <span class="round-tabs three hoverable">
+                     <i class=" glyphicon glyphicon-folder-open"></i>
+                   </span>
+                 </a>
+               </li>
 
-                     <li>
-                      <a href="#tabs-demo6-area3" data-toggle="tab" title="bootsnipp goodies">
-                       <span class="round-tabs three fa fa-building hoverable">
-                      </span> 
-                    </a>
-                    </li>
-                </ul>
+               <li>
+                <a href="#tabs-demo6-area3" data-toggle="tab" title="bootsnipp goodies">
+                 <span class="round-tabs three fa fa-building hoverable">
+                </span>
+                </a>
+               </li>
+              </ul>
                 <div class="tab-content tab-content-v5">
                   <div class="tab-pane fade in active" id="tabs-demo6-area1">
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-10">
-                                        <div class="col-md-12 panel hoverable">
-                                          <div class="col-md-12 panel-heading">
-                                            <h4> Informations Personnelles</h4>
-                                          </div>
-                                          <div class="col-md-12 panel-body" style="padding-bottom:30px;">
-                                            <div class="col-md-12">
-                                                <form class="cmxform" id="signupForm" method="get" action="">
-                                                  <div class="col-md-12">
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="text" class="form-text"  required>
-                                                      <span class="bar"></span>
-                                                      <label>Prenom</label>
-                                                    </div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-10">
+                          <div class="col-md-12 panel hoverable">
+                            <div class="col-md-12 panel-heading">
+                              <h4> Informations Personnelles</h4>
+                            </div>
+                            <div class="col-md-12 panel-body" style="padding-bottom:30px;">
+                            <div class="col-md-12">
+                                <div class="cmxform" id="signupForms">
+                                  <div class="col-md-12">
+                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                      <input type="text" [(ngModel)]="user.prenom" class="form-text"  required>
+                                      <span class="bar"></span>
+                                      <label>Prenom</label>
+                                    </div>
 
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="text" class="form-text" id="validate_lastname" name="validate_lastname" required>
-                                                      <span class="bar"></span>
-                                                      <label>Nom</label>
-                                                    </div>
+                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                      <input type="text" [(ngModel)]="user.nom" class="form-text" id="validate_lastname" name="validate_lastname" required>
+                                      <span class="bar"></span>
+                                      <label>Nom</label>
+                                    </div>
 
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="number" class="form-text"  required>
-                                                      <span class="bar"></span>
-                                                      <label>Age</label>
-                                                    </div>
-                                                    
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="text" class="form-text"  required>
-                                                      <span class="bar"></span>
-                                                      <label>Adress</label>
-                                                    </div>
+                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                      <input type="number" [(ngModel)]="user.age" class="form-text"  required>
+                                      <span class="bar"></span>
+                                      <label>Age</label>
+                                    </div>
 
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="text" class="form-text"  required>
-                                                      <span class="bar"></span>
-                                                      <label>Telephone</label>
-                                                    </div>
+                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                      <input type="text" [(ngModel)]="user.adresse" class="form-text"  required>
+                                      <span class="bar"></span>
+                                      <label>Adresse</label>
+                                    </div>
 
-                                                    <div class="col-md-6" style="padding:20px;padding-bottom:0px;">
-                                                      <div class="custom-control custom-radio">
-                                                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                                        <label class="custom-control-label" for="customRadio1">Homme</label>
-                                                      </div>
-                                                    </div>
-                                                    <div class="col-md-6" style="padding:20px;padding-bottom:0px;">
-                                                      <div class="custom-control custom-radio">
-                                                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                                        <label class="custom-control-label" for="customRadio2">Femme</label>
-                                                      </div>
-                                                    </div>
+                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                      <input type="text" [(ngModel)]="user.telephone" class="form-text"  required>
+                                      <span class="bar"></span>
+                                      <label>Telephone</label>
+                                    </div>
 
-                                                  </div>
+                                    <div class="col-md-6" style="padding:20px;padding-bottom:0px;">
+                                      <div class="custom-control custom-radio">
+                                        <input [(ngModel)]="user.sexe" value="Homme" type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio1">Homme</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6" style="padding:20px;padding-bottom:0px;">
+                                      <div class="custom-control custom-radio">
+                                        <input type="radio" [(ngModel)]="user.sexe" value="Femme" id="customRadio2" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio2">Femme</label>
+                                      </div>
+                                    </div>
 
-                                                                    
-                                                  <div class="col-md-12 ">
-                                                      <button class=" btn btn-circle btn-3d  btn-primary right" value="primary">
-                                                         <span class="fa fa-paper-plane-o"></span>
-                                                      </button>                                                
-                                                  </div>
-                                              </form>
-                                            </div>
-                                          </div>
-                                        </div>
                                   </div>
+
+
+                                  <div class="col-md-12 ">
+                                      <button class=" btn btn-circle btn-3d  btn-primary right" value="primary">
+                                         <span class="fa fa-paper-plane-o"></span>
+                                      </button>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                      </div>
                   </div>
                   <div class="tab-pane fade" id="tabs-demo6-area2">
-                                    <div class="col-md-1"></div>
-                                      <div class="col-md-10">
-                                        <div class="col-md-12 panel hoverable">
-                                          <div class="col-md-12 panel-heading">
-                                            <h4> Informations Compte</h4>
-                                          </div>
-                                          <div class="col-md-12 panel-body" style="padding-bottom:30px;">
-                                            <div class="col-md-12">
-                                                <form class="cmxform" id="signupForm" method="get" action="">
-                                                 
-                                                  <div class="col-md-12">
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="text" class="form-text"  required>
-                                                      <span class="bar"></span>
-                                                      <label>Username</label>
-                                                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                      <div class="col-md-12 panel hoverable">
+                        <div class="col-md-12 panel-heading">
+                          <h4> Informations Compte</h4>
+                        </div>
+                        <div class="col-md-12 panel-body" style="padding-bottom:30px;">
+                          <div class="col-md-12">
+                              <div class="cmxform" id="signupFormss">
+                                <div class="col-md-12">
+                                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input [(ngModel)]="user.username" type="text" class="form-text"  required>
+                                    <span class="bar"></span>
+                                    <label>Username</label>
+                                  </div>
 
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="password" class="form-text"  required>
-                                                      <span class="bar"></span>
-                                                      <label>Password</label>
-                                                    </div>
+                                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="password" [(ngModel)]="user.password" class="form-text"  required>
+                                    <span class="bar"></span>
+                                    <label>Password</label>
+                                  </div>
 
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="password" class="form-text"  required>
-                                                      <span class="bar"></span>
-                                                      <label>Confirm Password</label>
-                                                    </div>
+                                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="password" [(ngModel)]="confirmPassword" class="form-text"  required>
+                                    <span class="bar"></span>
+                                    <label>Confirm Password</label>
+                                  </div>
 
-                                                    <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                                      <input type="text" class="form-text" required>
-                                                      <span class="bar"></span>
-                                                      <label>Email</label>
-                                                    </div>
+                                  <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input [(ngModel)]="user.email" type="text" class="form-text" required>
+                                    <span class="bar"></span>
+                                    <label>Email</label>
+                                  </div>
 
-                                                  
-                                                  </div>                   
-                                                  <div class="col-md-12 ">
-                                                      <button class=" btn btn-circle btn-3d  btn-primary right" value="primary">
-                                                         <span class="fa fa-paper-plane-o"></span>
-                                                      </button>
-                                                </div>
-                                              </form>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>  
 
+                                </div>
+                                <div class="col-md-12 ">
+                                    <button class=" btn btn-circle btn-3d  btn-primary right" value="primary">
+                                       <span class="fa fa-paper-plane-o"></span>
+                                    </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="tabs-demo6-area3">
                     <div class="col-md-1"></div>
-                                      <div class="col-md-10">
-                                        <div class="col-md-12 panel hoverable">
-                                          <div class="col-md-12 panel-heading">
-                                            <h4> Informations Etablisement</h4>
-                                          </div>
-                                          <div class="col-md-12 panel-body" style="padding-bottom:30px;">
-                                            <div class="col-md-12">
-                                                <form class="cmxform" id="signupForm" method="get" action="">
-                                                  <div class="col-md-10">
-                                                  <select class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
-                                                    <option selected>Departement</option>
-                                                    <option value="1">Informatique</option>
-                                                    <option value="2">Gestion</option>
-                                                    <option value="3">Electrique</option>
-                                                  </select>
-                                                  </div>
+                    <div class="col-md-10">
+                      <div class="col-md-12 panel hoverable">
+                        <div class="col-md-12 panel-heading">
+                          <h4> Informations Etablisement</h4>
+                        </div>
+                        <div class="col-md-12 panel-body" style="padding-bottom:30px;">
+                          <div class="col-md-12">
+                              <div class="cmxform" id="signupForm">
+                                <div class="col-md-10">
+                                <select [(ngModel)]="user.departement" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                  <option selected>Departement</option>
+                                  <option value="Genie Informatique">Genie Informatique</option>
+                                  <option value="Departement de Gestion">Departement de Gestion</option>
+                                  <option value="Genie Electrique">Genie Electrique</option>
+                                </select>
+                                </div>
 
-                                                  <div class="col-md-10">
-                                                  <select class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
-                                                    <option selected>Cycle</option>
-                                                    <option value="1">DUT</option>
-                                                    <option value="2">DIC</option>
-                                                    <option value="3">DESCAF</option>
-                                                  </select>
-                                                  </div>
+                                <div class="col-md-10">
+                                  <select [(ngModel)]="user.option" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                    <option selected>Option</option>
+                                    <option value="Informatique">Informatique</option>
+                                    <option value="Reseau et télécomminucation">Reseau et télécomminucation</option>
+                                    <option value="Chimique">Chimique</option>
+                                    <option value="Biologie Alimentaire">Biologie Alimentaire</option>
+                                  </select>
+                                </div>
 
-                                                  <div class="col-md-10">
-                                                  <select class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
-                                                    <option selected>Niveau</option>
-                                                    <option value="1">DUT1</option>
-                                                    <option value="2">DUT2</option>
-                                                    <option value="3">DIC1</option>
-                                                    <option value="3">DIC2</option>
-                                                    <option value="3">DIC3</option>
-                                                  </select>
-                                                  </div>
-                                                                    
-                                                  <div class="col-md-12 ">
-                                                      <button class=" btn btn-circle btn-3d  btn-primary right" value="primary">
-                                                         <span class="fa fa-paper-plane-o"></span>
-                                                      </button>
-                                                 </div>
-                                              </form>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                <div class="col-md-10">
+                                <select [(ngModel)]="user.cycle" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                  <option selected>Cycle</option>
+                                  <option value="DUT">DUT</option>
+                                  <option value="DIC">DIC</option>
+                                  <option value="DESCAF">DESCAF</option>
+                                </select>
+                                </div>
+
+                                <div class="col-md-10">
+                                <select [(ngModel)]="user.niveau" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                  <option selected>Niveau</option>
+                                  <option value="DUT1">DUT1</option>
+                                  <option value="DUT2">DUT2</option>
+                                  <option value="DIC1">DIC1</option>
+                                  <option value="DIC2">DIC2</option>
+                                  <option value="DIC3">DIC3</option>
+                                </select>
+                                </div>
+
+                                <div class="col-md-12 ">
+                                    <button (click)="validate();" class=" btn btn-circle btn-3d  btn-primary right" value="primary">
+                                       <span class="fa fa-paper-plane-o"></span>
+                                    </button>
+                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="clearfix"></div>
                 </div>
               </div>
-            </div>  
+            </div>
+      </div>
+    </div>
+ </div>

@@ -9,6 +9,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HomeComponent } from './home/home.component';
 import {HomeModule} from "./home/home.module";
 import {DataService} from "./data.service";
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import {DataService} from "./data.service";
   imports: [
     BrowserModule,
     AutentModule,
+    FormsModule,
+    HttpModule,
     HomeModule,
     AppRoutingModule,
     BrowserAnimationsModule

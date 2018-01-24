@@ -20,11 +20,12 @@ export class LoginComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit() {
-    this.dataService.addData("Departements", {label : "Informatique"})
+    /*this.dataService.post("Departements", {label : "Informatique"})
       .subscribe(
         data=> console.log(data),
         err => console.log(err)
       );
+      */
   }
 
   ngAfterViewInit()

@@ -1,83 +1,42 @@
 <div>
-        <div class="tabs-wrapper text-center">             
+        <div class="tabs-wrapper text-center">
             <div class="panel box-shadow-none text-left content-header">
                   <div class="panel-body" style="padding-bottom:0px;">
                     <div class="col-md-12">
                         <h3 class="animated fadeInLeft"><span class="fa fa-building-o"></span> Codification</h3>
                         <p class="animated fadeInDown">
-                          Choisissez la chambre dans laquelle vous voulez codifier  
+                          Choisissez la chambre dans laquelle vous voulez codifier
                           <span class="fa-angle-right fa"></span>
                         </p>
                     </div>
                     <ul id="tabs-demo" class="nav nav-tabs nav-tabs-v3 content-header-tab " role="tablist" style="padding-top:10px;">
-                      <li role="presentation" class="active">
-                          <a href="#tabs-area-demo" id="tabs2" data-toggle="tab">  Pavillon A</a>
-                      </li>
-                      <li role="presentation" class="">
-                        <a href="#panels-area-demo" id="tabs2" data-toggle="tab">Pavillon B</a>
-                      </li>
-                      <li role="presentation" class="">
-                        <a href="#panels-area-demo" id="tabs2" data-toggle="tab">Pavillon C</a>
-                      </li>
-                      <li role="presentation" class="">
-                        <a href="#panels-area-demo" id="tabs2" data-toggle="tab">Pavillon F</a>
+                      <li (click)="getElement($event);" *ngFor="let batiment of batiments" role="presentation" [ngClass]="{'active': batiments[0]==batiment}">
+                          <a [attr.href]="'#' + batiment.id" id="tabs2" data-toggle="tab">  {{batiment.label}}</a>
                       </li>
                     </ul>
                   </div>
             </div>
             <div class="col-md-12 tab-content">
 
-              <div role="tabpanel" class="tab-pane fade active in" id="tabs-area-demo" aria-labelledby="tabs1">
+              <div *ngFor="let batiment of batiments" role="tabpanel" [ngClass]="{'tab-pane':true, 'fade':true, 'in':true,'active': batiments[0]==batiment}" [attr.id]="batiment.id" aria-labelledby="tabs1">
                 <div class="col-md-12">
                   <div class="col-md-12">
                     <div class="col-md-12 tabs-area">
                       <div class="liner"></div>
                       <ul class="nav nav-tabs nav-tabs-v5" id="tabs-demo6">
-                        <li class="active">
-                          <a href="#tabs-demo6-area1" data-toggle="tab" title="welcome">
+                        <li *ngFor="let etage of batiment.etages" [ngClass]="{'active': batiment.etages[0]==etage}">
+                          <a [attr.href]="'#' + etage.id" data-toggle="tab" title="welcome">
                             <span class="round-tabs three hoverable">
-                            <i class="fa fa-th"><br>Etage 1</i>   
-                            </span> 
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="#tabs-demo6-area2" data-toggle="tab" title="profile">
-                          <span class="round-tabs three hoverable">
-                            <i class="fa fa-th"><br>Etage 2</i>   
-                            </span> 
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#tabs-demo6-area3" data-toggle="tab" title="bootsnipp goodies">
-                        <span class="round-tabs three hoverable">
-                            <i class="fa fa-th"><br>Etage 3</i>   
-                        </span> 
-                        </a>
-                        </li>
-
-                        <li>
-                        <a href="#tabs-demo6-area4" data-toggle="tab" title="blah blah">
-                          <span class="round-tabs three hoverable">
-                              <i class="fa fa-th"><br>Etage 4</i>   
-                          </span> 
-                        </a>
-                        </li>
-
-                        <li>
-                          <a href="#tabs-demo6-area5" data-toggle="tab" title="completed">
-                          <span class="round-tabs three hoverable">
-                                <i class="fa fa-th"><br>Etage 5</i>   
-                          </span> 
+                            <i class="fa fa-th"><br>Etage {{etage.numero}}</i>
+                            </span>
                           </a>
                         </li>
                       </ul>
                       <div class="tab-content tab-content-v5">
-                        <div class="tab-pane fade in active" id="tabs-demo6-area1">
+                        <div *ngFor="let etage of batiment.etages" [ngClass]="{'tab-pane':true, 'fade':true, 'in':true,'active': batiment.etages[0]==etage}" [attr.id]="etage.id">
 
-                          <h3 class="head text-center">Etage<span style="color:dodgerblue;">1</span></h3>
-                          <div class="col-md-2 ">
+                          <h3 class="head text-center">Etage<span style="color:dodgerblue;">{{etage.numero}}</span></h3>
+                          <div *ngFor="let chambre of etage.chambres" class="col-md-2 ">
                             <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
                                   <div class="bg-white">
                                         <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
@@ -85,254 +44,13 @@
                                             <span class="fa fa-home "></span>
                                           </h1>
                                         </div>
-                                  </div>          
+                                  </div>
                                   <div class="panel-body text-center">
-                                    <p>45</p>
+                                    <p>{{chambre.numero}}</p>
                                   </div>
                             </div>
                           </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          <div class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
-                                  <div class="bg-white">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
-                                        </div>
-                                  </div>          
-                                  <div class="panel-body text-center">
-                                    <p>45</p>
-                                  </div>
-                            </div>
-                          </div>
-                          
-                          
                         </div>
-                        
                         <div class="clearfix"></div>
                       </div>
                       <!-- Modal -->
@@ -363,31 +81,31 @@
                                               </li>
                                               <li role="presentation" class="" style="padding-bottom:20px;">
                                                 <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Souaibou Ndiaye</a>
-                                              </li> 
+                                              </li>
                                           </ul>
                                       </div>
                                   </div>
                                   <div class="col-md-8 tab-content">
                                     <div role="tabpanel" class="tab-pane fade active in" id="tabs-modal" aria-labelledby="tabs1">
                                       <div class="col-md-12 panel tabs-area">
-                                          <div col-md-12>  
+                                          <div col-md-12>
                                             <div col-md-5 class="">
-                                              
-                                                <img src="asset/img/avatar.jpg" class="box-v7-avatar pull-left" />                                                
-                                                
+
+                                                <img src="asset/img/avatar.jpg" class="box-v7-avatar pull-left" />
+
                                             </div>
                                             <div col-md-7>
                                                 <h5>Papa youssouf Lam</h5>
                                                 <p>Age:</p>
                                             </div>
                                           </div>
-                                      </div>  
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                                 <div class=" col-md-12 " style="margin-left:200px;">
                                   <button class="btn btn-primary btn-3d btn-login">
-                                        Reserver      
+                                        Reserver
                                   </button>
                                   <button class="btn btn-primary btn-3d btn-login" style="margin-left:20px;">
                                         Codifier
@@ -405,8 +123,6 @@
                   </div>
                 </div>
               </div>
-              <div role="tabpanel" class="tab-pane fade active in" id="panels-area-demo" aria-labelledby="tabs1">
-              </div>             
             </div>
         </div>
 </div>
