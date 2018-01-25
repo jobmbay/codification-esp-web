@@ -53,7 +53,6 @@ export class DataService {
   }
 
   putRel(urlF,urlS,idF,idS) {
-    console.log(this.baseUrl + urlF + "/" + idF  + "/" + urlS + "/rel/" + idS)
     return this.http.put(this.baseUrl + urlF + "/" + idF  + "/" + urlS + "/rel/" + idS, {})
       .map((res:Response) => res.json());
   }

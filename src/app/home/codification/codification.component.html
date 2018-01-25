@@ -1,5 +1,5 @@
 <div>
-        <div class="tabs-wrapper text-center">
+  <div class="tabs-wrapper text-center">
             <div class="panel box-shadow-none text-left content-header">
                   <div class="panel-body" style="padding-bottom:0px;">
                     <div class="col-md-12">
@@ -40,13 +40,26 @@
                             <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
                                   <div class="bg-white">
                                         <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
-                                          <h1>
-                                            <span class="fa fa-home "></span>
-                                          </h1>
+                                          <h3>
+                                            <rating style="font-size: 13px;" [(ngModel)]="model.rating"
+                                                    [max]="5"
+                                                    iconClass="star-icon"
+                                                    fullIcon="★"
+                                                    emptyIcon="☆"
+                                                    [readonly]="true"
+                                                    [disabled]="false"
+                                                    [required]="true"
+                                                    [float]="true"
+                                                    [titles]="['tres faible', 'faible', 'moyen', 'fort', 'tres fort']">
+                                            </rating>
+                                            <br>
+                                            <i class="fa fa-home"></i>
+                                            <!--<img style="width: 60px;" [src]="'assets/img/' + chambre.emoji" alt="">-->
+                                          </h3>
                                         </div>
                                   </div>
                                   <div class="panel-body text-center">
-                                    <p>{{chambre.numero}}</p>
+                                    <h3>{{chambre.numero}}</h3>
                                   </div>
                             </div>
                           </div>
@@ -66,49 +79,68 @@
                             <div class="modal-body">
                               <div class="row">
                                 <div class="col-md-12">
-                                  <div class="col-md-4 mail-left panel hoverable content-header" style="border-radius:10%;">
-                                      <div class="col-md-12 mail-left-content ">
-                                          <ul class="nav nav-tabs nav-tabs-v3 ">
-                                              <li><h3><span class="fa fa-home"></span>Demeurants</h3></li>
-                                              <li role="presentation" class="active" style="padding-bottom:20px;">
-                                                <a href="#tabs-modal" id="tabs3" class="active" data-toggle="tab"><span class="fa fa-user"></span> Papa Youssouf Lam</a>
-                                              </li>
-                                              <li role="presentation" class="" style="padding-bottom:20px;">
-                                                <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Mbaye Diop</a>
-                                              </li>
-                                              <li role="presentation" class="" style="padding-bottom:20px;">
-                                                <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Antoine Mendy</a>
-                                              </li>
-                                              <li role="presentation" class="" style="padding-bottom:20px;">
-                                                <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Souaibou Ndiaye</a>
-                                              </li>
-                                          </ul>
-                                      </div>
+                                  <div class="col-md-4 mail-left panel hoverable content-header" style="border-radius:10%; margin-top:30px;">
+                                    <div class="col-md-12 mail-left-content ">
+                                      <ul class="nav nav-tabs nav-tabs-v3 ">
+                                        <li><h3><span class="fa fa-home"></span>Demeurants</h3></li>
+                                        <li role="presentation" class="active" style="padding-bottom:20px;">
+                                          <a href="#tabs-modal" id="tabs3" class="active" data-toggle="tab"><span class="fa fa-user"></span> Papa Youssouf Lam</a>
+                                        </li>
+                                        <li role="presentation" class="" style="padding-bottom:20px;">
+                                          <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Mbaye Diop</a>
+                                        </li>
+                                        <li role="presentation" class="" style="padding-bottom:20px;">
+                                          <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Antoine Mendy</a>
+                                        </li>
+                                        <li role="presentation" class="" style="padding-bottom:20px;">
+                                          <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Souaibou Ndiaye</a>
+                                        </li>
+                                      </ul>
+                                    </div>
                                   </div>
-                                  <div class="col-md-8 tab-content">
+                                  <div class="col-md-8 tab-content" >
                                     <div role="tabpanel" class="tab-pane fade active in" id="tabs-modal" aria-labelledby="tabs1">
-                                      <div class="col-md-12 panel tabs-area">
-                                          <div col-md-12>
-                                            <div col-md-5 class="">
-
-                                                <img src="asset/img/avatar.jpg" class="box-v7-avatar pull-left" />
-
+                                      <div class="col-md-12 panel tabs-area hoverable" style="border-radius:10px;">
+                                        <div class="col-md-12" style="padding-bottom:20px;">
+                                          <div  class="col-md-5 box-v7 ">
+                                            <img src="assets/img/avatar.jpg" class="box-v7-avatar hoverable pull-left"/>
+                                          </div>
+                                          <div class="col-md-7">
+                                            <h5>Papa youssouf Lam</h5>
+                                            <p>Age: 21ans</p>
+                                            <p>Adress: Sipres</p>
+                                            <p>Telephone: 770900631</p>
+                                          </div>
+                                        </div>
+                                        <div class="col-m-12">
+                                          <div class="box-v3">
+                                            <div class=" bg-white border-none">
+                                              <h4>Etablissement</h4>
                                             </div>
-                                            <div col-md-7>
-                                                <h5>Papa youssouf Lam</h5>
-                                                <p>Age:</p>
+                                            <div class="col-md-5">
+                                              <p>Departements:</p>
+                                              <p>Option:</p>
+                                              <p>Cycle:</p>
+                                              <p>Niveau:</p>
+                                            </div>
+                                            <div class="col-md-7">
+                                              <p>Genie Informatique</p>
+                                              <p>Informatique</p>
+                                              <p>DIC</p>
+                                              <p>2</p>
                                             </div>
                                           </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                                 <div class=" col-md-12 " style="margin-left:200px;">
                                   <button class="btn btn-primary btn-3d btn-login">
-                                        Reserver
+                                    Reserver
                                   </button>
                                   <button class="btn btn-primary btn-3d btn-login" style="margin-left:20px;">
-                                        Codifier
+                                    Codifier
                                   </button>
                                 </div>
                               </div>

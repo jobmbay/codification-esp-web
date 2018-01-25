@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-autent',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
+    if(this.dataService.isConnected())
+    {
+      this.router.navigate(['/home'])
+    }
   }
 
 }

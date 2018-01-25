@@ -9,12 +9,14 @@ import { EchangerChambreComponent } from './echanger-chambre/echanger-chambre.co
 import {FormsModule} from "@angular/forms";
 import {DataService} from "../data.service";
 import {HttpModule} from "@angular/http";
+import {RatingModule} from "ngx-rating";
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
+    RatingModule,
     HttpModule
   ],
   providers: [

@@ -1,5 +1,6 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {DataService} from "../../data.service";
+import {Router} from "@angular/router";
 
 declare var $ : any;
 
@@ -10,13 +11,33 @@ declare var $ : any;
 })
 export class LoginComponent implements OnInit,AfterViewInit {
 
-  constructor(private dataService : DataService) {
+  user={
+    username:"",
+    password:""
+  }
+
+  constructor(private router: Router, private dataService : DataService) {
     let urlToChangeStream = 'https://codification-esp-api.herokuapp.com/api/Departements/change-stream?_format=event-stream';
     let src = new window['EventSource'](urlToChangeStream);
     src.addEventListener('data', function(msg) {
       let data = JSON.parse(msg.data);
       console.log("realtime",data); // the change object
     });
+  }
+
+  validerLogin()
+  {
+    this.dataService.login(this.user)
+      .subscribe(
+        data =>{
+          this.dataService.setTocken(data.id);
+          this.dataService.setUser(data.user);
+          this.router.navigate(['/home/dashboard']);
+        },
+        err =>{
+          console.log(err);
+        }
+      );
   }
 
   ngOnInit() {

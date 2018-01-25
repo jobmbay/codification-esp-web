@@ -19,8 +19,8 @@ const homeRoutes: Routes = [
       { path:'codification', component: CodificationComponent},
       { path:'inscription', component: InscriptionComponent},
       { path:'statistique', component: StatistiqueComponent},
-      { path:'echanger-chambre',component: EchangerChambreComponent}
-      
+      { path:'echanger-chambre',component: EchangerChambreComponent},
+      { path: '', redirectTo: 'dashboard', pathMatch:'full'}
     ]
   }
 ];
