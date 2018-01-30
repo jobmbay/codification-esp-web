@@ -1,3 +1,4 @@
+<toaster-container></toaster-container>
 <div>
   <div class="tabs-wrapper text-center">
             <div class="panel box-shadow-none text-left content-header">
@@ -24,8 +25,8 @@
                     <div class="col-md-12 tabs-area">
                       <div class="liner"></div>
                       <ul class="nav nav-tabs nav-tabs-v5" id="tabs-demo6">
-                        <li *ngFor="let etage of batiment.etages" [ngClass]="{'active': batiment.etages[0]==etage}">
-                          <a [attr.href]="'#' + etage.id" data-toggle="tab" title="welcome">
+                        <li *ngFor="let etage of batiment.etages" [ngClass]="{'active': batiment.etages[0]==etage && etage.demeurant==user.sexe}">
+                          <a [attr.href]="'#' + etage.id" data-toggle="tab" title="welcome" *ngIf="etage.demeurant==user.sexe">
                             <span class="round-tabs three hoverable">
                             <i class="fa fa-th"><br>Etage {{etage.numero}}</i>
                             </span>
@@ -33,15 +34,15 @@
                         </li>
                       </ul>
                       <div class="tab-content tab-content-v5">
-                        <div *ngFor="let etage of batiment.etages" [ngClass]="{'tab-pane':true, 'fade':true, 'in':true,'active': batiment.etages[0]==etage}" [attr.id]="etage.id">
+                        <div *ngFor="let etage of batiment.etages" [ngClass]="{'tab-pane':true, 'fade':true, 'in':true,'active': ((batiment.etages[0]==etage && etage.demeurant==user.sexe) )}" [attr.id]="etage.id">
 
-                          <h3 class="head text-center">Etage<span style="color:dodgerblue;">{{etage.numero}}</span></h3>
-                          <div *ngFor="let chambre of etage.chambres" class="col-md-2 ">
-                            <div class="panel bg-grey text-white hoverable " style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
+                          <h3  *ngIf="etage.demeurant==user.sexe" class="head text-center">Etage<span style="color:dodgerblue;">{{etage.numero}}</span></h3>
+                          <div [hidden]="etage.demeurant!=user.sexe" *ngFor="let chambre of etage.chambres" class="col-md-2 ">
+                            <div class="panel bg-grey text-white hoverable " (click)="chooseRoom(chambre, batiment)" style="border-radius:20%;" data-toggle="modal" data-target="#exampleModal">
                                   <div class="bg-white">
                                         <div class="col-md-12 col-sm-12 col-xs-12 text-center text-blue">
                                           <h3>
-                                            <rating style="font-size: 13px;" [(ngModel)]="model.rating"
+                                            <rating style="font-size: 13px;" [(ngModel)]="chambre.affinite"
                                                     [max]="5"
                                                     iconClass="star-icon"
                                                     fullIcon="★"
@@ -53,7 +54,9 @@
                                                     [titles]="['tres faible', 'faible', 'moyen', 'fort', 'tres fort']">
                                             </rating>
                                             <br>
-                                            <i class="fa fa-home"></i>
+                                            <i *ngIf="chambre.positions.length!=0 && chambre.positions.length < chambre.nbposition" class="fa fa-home"></i>
+                                            <i *ngIf="chambre.positions.length==chambre.nbposition " class="fa fa-lock"></i>
+                                            <i *ngIf="chambre.positions.length==0" class="fa fa-ban">vide</i>
                                             <!--<img style="width: 60px;" [src]="'assets/img/' + chambre.emoji" alt="">-->
                                           </h3>
                                         </div>
@@ -71,7 +74,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Chambre 45C</h5>
+                              <h5 class="modal-title" id="exampleModalLabel">Chambre {{chambre.numero}} {{chambre.batiment}}</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -83,22 +86,13 @@
                                     <div class="col-md-12 mail-left-content ">
                                       <ul class="nav nav-tabs nav-tabs-v3 ">
                                         <li><h3><span class="fa fa-home"></span>Demeurants</h3></li>
-                                        <li role="presentation" class="active" style="padding-bottom:20px;">
-                                          <a href="#tabs-modal" id="tabs3" class="active" data-toggle="tab"><span class="fa fa-user"></span> Papa Youssouf Lam</a>
-                                        </li>
-                                        <li role="presentation" class="" style="padding-bottom:20px;">
-                                          <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Mbaye Diop</a>
-                                        </li>
-                                        <li role="presentation" class="" style="padding-bottom:20px;">
-                                          <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Antoine Mendy</a>
-                                        </li>
-                                        <li role="presentation" class="" style="padding-bottom:20px;">
-                                          <a href="#tabs-modal" id="tabs3" data-toggle="tab"><span class="fa fa-user" data-toggle="tab"></span> Souaibou Ndiaye</a>
+                                        <li (click)="getCurrentEtudiant(position.etudiant);" *ngFor="let position of chambre.positions" role="presentation" [ngClass]="{active:chambre.positions[0]==position}" style="padding-bottom:20px;">
+                                          <a href="#tabs-modal" id="tabs3" class="active" data-toggle="tab"><span class="fa fa-user"></span> {{position.etudiant.prenom}} {{position.etudiant.nom}}</a>
                                         </li>
                                       </ul>
                                     </div>
                                   </div>
-                                  <div class="col-md-8 tab-content" >
+                                  <div *ngIf="exite" class="col-md-8 tab-content" >
                                     <div role="tabpanel" class="tab-pane fade active in" id="tabs-modal" aria-labelledby="tabs1">
                                       <div class="col-md-12 panel tabs-area hoverable" style="border-radius:10px;">
                                         <div class="col-md-12" style="padding-bottom:20px;">
@@ -106,10 +100,10 @@
                                             <img src="assets/img/avatar.jpg" class="box-v7-avatar hoverable pull-left"/>
                                           </div>
                                           <div class="col-md-7">
-                                            <h5>Papa youssouf Lam</h5>
-                                            <p>Age: 21ans</p>
-                                            <p>Adress: Sipres</p>
-                                            <p>Telephone: 770900631</p>
+                                            <h5>{{currentEtudiant.prenom}} {{currentEtudiant.nom}}</h5>
+                                            <p>Age: {{currentEtudiant.age}}ans</p>
+                                            <p>Adress: {{currentEtudiant.adresse}}</p>
+                                            <p>Telephone: {{currentEtudiant.telephone}}</p>
                                           </div>
                                         </div>
                                         <div class="col-m-12">
@@ -124,29 +118,33 @@
                                               <p>Niveau:</p>
                                             </div>
                                             <div class="col-md-7">
-                                              <p>Genie Informatique</p>
-                                              <p>Informatique</p>
-                                              <p>DIC</p>
-                                              <p>2</p>
+                                              <p>{{currentEtudiant.option.departement.label}}</p>
+                                              <p>{{currentEtudiant.option.label}}</p>
+                                              <p>{{currentEtudiant.cycle.label}}</p>
+                                              <p>{{currentEtudiant.niveau.numero}}</p>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
+                                  <div *ngIf="!exite" class="col-md-8 tab-content" >
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tabs-modal" aria-labelledby="tabs1">
+                                      <div class="col-md-12 panel tabs-area hoverable" style="border-radius:10px;">
+                                        <h2>Chambre vide!</h2>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div class=" col-md-12 " style="margin-left:200px;">
-                                  <button class="btn btn-primary btn-3d btn-login">
-                                    Reserver
-                                  </button>
-                                  <button class="btn btn-primary btn-3d btn-login" style="margin-left:20px;">
-                                    Codifier
+                                <div class=" col-md-12 " style="margin-left:210px;">
+                                  <button (click)="reserver();" class="btn btn-primary btn-3d btn-login">
+                                    Reserver la chambre
                                   </button>
                                 </div>
                               </div>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                           </div>
                         </div>
@@ -157,4 +155,5 @@
               </div>
             </div>
         </div>
+  <a id="changeStream" (click)="initialisation();"></a>
 </div>

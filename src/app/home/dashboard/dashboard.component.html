@@ -3,6 +3,8 @@
                       <div class="col-md-6 col-sm-12">
                         <h3 class="animated fadeInLeft">Campus Social</h3>
                         <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Ecole Superieur Polytechnique,Dakar</p>
+                        <h4 *ngIf="exite">{{position.status}}: {{position.chambre.numero}} {{position.chambre.etage.batiment.label}}</h4>
+                        <h4 *ngIf="!exite">Vous n'avez ni codifier ni reserver une chambre</h4>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
@@ -12,16 +14,16 @@
                         <div class="col-md-6 col-sm-6">
                            <div class="suny">
                                     <div class="stormy sun animated pulse infinite">
-                                    </div>                             
+                                    </div>
                                     <div class="mount"></div>
                                     <div class="mount mount1"></div>
                                     <div class="mount mount2"></div>
                                 </div>
-                        </div>                   
+                        </div>
                     </div>
-                  </div>                    
+                  </div>
               </div>
-               
+
               <div class="col-md-12 padding-0">
                                 <div class="col-md-3 ">
                                     <div class="panel box-v1 bg-light-blue text-white hoverable">
@@ -136,4 +138,3 @@
                         </div>
                   </div>
               </div>
-                

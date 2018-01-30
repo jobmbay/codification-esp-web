@@ -17,12 +17,7 @@ export class LoginComponent implements OnInit,AfterViewInit {
   }
 
   constructor(private router: Router, private dataService : DataService) {
-    let urlToChangeStream = 'https://codification-esp-api.herokuapp.com/api/Departements/change-stream?_format=event-stream';
-    let src = new window['EventSource'](urlToChangeStream);
-    src.addEventListener('data', function(msg) {
-      let data = JSON.parse(msg.data);
-      console.log("realtime",data); // the change object
-    });
+
   }
 
   validerLogin()
@@ -31,8 +26,13 @@ export class LoginComponent implements OnInit,AfterViewInit {
       .subscribe(
         data =>{
           this.dataService.setTocken(data.id);
-          this.dataService.setUser(data.user);
-          this.router.navigate(['/home/dashboard']);
+          this.dataService.get("Etudiants/"+ data.userId +"?filter=" + encodeURIComponent('{"include":[{"option":"departement"},"cycle","niveau"]}'))
+            .subscribe(
+              user=>{
+                this.dataService.setUser(user);
+                this.router.navigate(['/home/dashboard']);
+              }
+            );
         },
         err =>{
           console.log(err);

@@ -11,6 +11,7 @@ import {HomeModule} from "./home/home.module";
 import {DataService} from "./data.service";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
+import {ToasterModule} from "angular2-toaster";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {HttpModule} from "@angular/http";
     BrowserModule,
     AutentModule,
     FormsModule,
+    ToasterModule,
     HttpModule,
     HomeModule,
     AppRoutingModule,

@@ -1,4 +1,4 @@
- <div class="col-md-12 tab-content">
+<div class="col-md-12 tab-content">
     <div role="tabpanel" class="tab-pane fade active in" id="tabs-area-demo" aria-labelledby="tabs1">
       <div class="col-md-12">
           <div class="col-md-12">
@@ -72,13 +72,13 @@
 
                                     <div class="col-md-6" style="padding:20px;padding-bottom:0px;">
                                       <div class="custom-control custom-radio">
-                                        <input [(ngModel)]="user.sexe" value="Homme" type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                        <input [(ngModel)]="user.sexe" [value]="'Homme'" type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadio1">Homme</label>
                                       </div>
                                     </div>
                                     <div class="col-md-6" style="padding:20px;padding-bottom:0px;">
                                       <div class="custom-control custom-radio">
-                                        <input type="radio" [(ngModel)]="user.sexe" value="Femme" id="customRadio2" name="customRadio" class="custom-control-input">
+                                        <input (change)="changeSexe()" type="radio" [(ngModel)]="user.sexe" [value]="'Femme'" id="customRadio2" name="customRadio" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadio2">Femme</label>
                                       </div>
                                     </div>
@@ -156,41 +156,26 @@
                           <div class="col-md-12">
                               <div class="cmxform" id="signupForm">
                                 <div class="col-md-10">
-                                <select [(ngModel)]="user.departement" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
-                                  <option selected>Departement</option>
-                                  <option value="Genie Informatique">Genie Informatique</option>
-                                  <option value="Departement de Gestion">Departement de Gestion</option>
-                                  <option value="Genie Electrique">Genie Electrique</option>
+                                <select (change)="departementChanged();" [(ngModel)]="user.departementId" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                  <option [value]="departement.id" *ngFor="let departement of departements">{{departement.label}}</option>
                                 </select>
                                 </div>
 
                                 <div class="col-md-10">
-                                  <select [(ngModel)]="user.option" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
-                                    <option selected>Option</option>
-                                    <option value="Informatique">Informatique</option>
-                                    <option value="Reseau et télécomminucation">Reseau et télécomminucation</option>
-                                    <option value="Chimique">Chimique</option>
-                                    <option value="Biologie Alimentaire">Biologie Alimentaire</option>
+                                  <select [(ngModel)]="user.optionId" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                    <option [value]="option.id" *ngFor="let option of myoptions">{{option.label}}</option>
                                   </select>
                                 </div>
 
                                 <div class="col-md-10">
-                                <select [(ngModel)]="user.cycle" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
-                                  <option selected>Cycle</option>
-                                  <option value="DUT">DUT</option>
-                                  <option value="DIC">DIC</option>
-                                  <option value="DESCAF">DESCAF</option>
+                                <select (click)="cycleChanged();" [(ngModel)]="user.cycleId" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                  <option [value]="cycle.id" *ngFor="let cycle of cycles" selected>{{cycle.label}}</option>
                                 </select>
                                 </div>
 
                                 <div class="col-md-10">
-                                <select [(ngModel)]="user.niveau" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
-                                  <option selected>Niveau</option>
-                                  <option value="DUT1">DUT1</option>
-                                  <option value="DUT2">DUT2</option>
-                                  <option value="DIC1">DIC1</option>
-                                  <option value="DIC2">DIC2</option>
-                                  <option value="DIC3">DIC3</option>
+                                <select [(ngModel)]="user.niveauId" class="custom-select custom-select-lg mb-3" style="width:100%; margin-bottom:10%;">
+                                  <option [value]="niveau.id" *ngFor="let niveau of niveaux" selected>{{niveau.numero}}</option>
                                 </select>
                                 </div>
 
